@@ -31,8 +31,7 @@ function buildCategory(category, widget) {
     content.push(
       h(
         "div.test",
-        h("div.test", { innerHTML: `<br><div style="red">asdfasdfasdf</div>` }),
-        h("div.test2", { innerHTML:  })
+        h("div.test", { innerHTML: `<br><div style="red">asdfasdfasdf</div>` })
       )
     );
   }
