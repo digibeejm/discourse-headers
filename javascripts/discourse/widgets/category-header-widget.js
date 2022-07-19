@@ -46,8 +46,8 @@ export default createWidget("category-header-widget", {
     const router = getOwner(this).lookup("router:main");
     const route = router.currentRoute;
 
-    console.log(router, "router");
-    console.log(route, "route");
+    // console.log(router, "router");
+    // console.log(route, "route");
 
     if (
       route &&
@@ -82,10 +82,13 @@ export default createWidget("category-header-widget", {
           (categories[category.parentCategory.name] === "all" ||
             categories[category.parentCategory.name] === "only_sub"));
       const hideMobile = !settings.show_mobile && this.site.mobileView;
-      const isSubCategory =
-        !settings.show_subcategory && category.parentCategory;
-      const hasNoCategoryDescription =
-        settings.hide_if_no_description && !category.description_text;
+      const isSubCategory = !settings.show_subcategory && category.parentCategory;
+      const hasNoCategoryDescription = settings.hide_if_no_description && !category.description_text;
+
+
+      if( router.currentPath === '/'){
+        console.log('HOMEPAGE')
+      }
 
       if (
         isTarget &&
