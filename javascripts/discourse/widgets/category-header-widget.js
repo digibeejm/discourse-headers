@@ -96,18 +96,31 @@ export default createWidget("category-header-widget", {
       ) {
         document.body.classList.add("category-header");
 
-      console.log(category, "category data")
+        console.log(category, "category data")
+
+        // Set Default Div Styles
+        let containerStyles = {
+          style: `background-color: #${category.color}; color: #${category.text_color};`,      
+        }
+
+        // Use Backgroung Image
+        if (settings.use_background_image === true && category.uploaded_background?.url) {
+          containerStyles = {
+            style: `background: url(${category.uploaded_background.url}) no-repeat cover center;`,      
+          }
+        }
+
 
         return h(
           `div.category-title-header.category-banner-${category.slug}`,
           {
-            attributes: {
-              style: `background-color: #${category.color}; color: #${category.text_color};`,
-            },
+            attributes: containerStyles,
           },
           h("div.category-title-contents", buildCategory(category, this))
         );
+
       }
+
     } else {
       document.body.classList.remove("category-header");
     }
