@@ -85,9 +85,9 @@ export default createWidget("category-header-widget", {
       const isSubCategory = !settings.show_subcategory && category.parentCategory;
       const hasNoCategoryDescription = settings.hide_if_no_description && !category.description_text;
 
-      console.log(router.currentURL)
-      console.log(router.location.location)
-      console.log(router.location.location.pathname)
+      console.log(router.currentURL, "currentURL")
+      console.log(router.location.location, "location")
+      console.log(router.location.location.pathname, "pathname")
 
       if( router.currentURL === "/"){
         // Handle HomePage
