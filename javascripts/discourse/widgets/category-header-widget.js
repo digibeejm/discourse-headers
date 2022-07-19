@@ -49,6 +49,18 @@ export default createWidget("category-header-widget", {
     console.log(router, "router");
     // console.log(route, "route");
 
+
+    console.log(router.currentURL, "currentURL")
+    console.log(router.location.location, "location")
+    console.log(router.location.location.pathname, "pathname")
+
+    if( router.currentURL === "/"){
+      // Handle HomePage
+      console.log('HOMEPAGE')
+    }
+
+    
+    // Category Headers
     if (
       route &&
       route.params &&
@@ -85,53 +97,40 @@ export default createWidget("category-header-widget", {
       const isSubCategory = !settings.show_subcategory && category.parentCategory;
       const hasNoCategoryDescription = settings.hide_if_no_description && !category.description_text;
 
-      console.log(router.currentURL, "currentURL")
-      console.log(router.location.location, "location")
-      console.log(router.location.location.pathname, "pathname")
+      if (
+        isTarget &&
+        !isException &&
+        !hasNoCategoryDescription &&
+        !isSubCategory &&
+        !hideMobile
+      ) {
+        document.body.classList.add("category-header");
 
-      if( router.currentURL === "/"){
-        // Handle HomePage
-        console.log('HOMEPAGE')
-      } else {
+        console.log(category, "category data")
 
-        // Category Headers
-        if (
-          isTarget &&
-          !isException &&
-          !hasNoCategoryDescription &&
-          !isSubCategory &&
-          !hideMobile
-        ) {
-          document.body.classList.add("category-header");
-
-          console.log(category, "category data")
-
-          // Set Default Div Styles
-          let containerStyles = {
-            style: `background-color: #${category.color}; color: #${category.text_color}; min-height: 450px`,      
-          }
-
-          // Use Backgroung Image
-          if (settings.use_background_image === true && category.uploaded_background?.url) {
-            containerStyles = {
-              style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover; background-position: center; min-height: 450px`,      
-            }
-          }
-
-
-          return h(
-            `div.category-title-header.category-banner-${category.slug}`,
-            {
-              attributes: containerStyles,
-            },
-            h("div.category-title-contents", buildCategory(category, this))
-          );
-
+        // Set Default Div Styles
+        let containerStyles = {
+          style: `background-color: #${category.color}; color: #${category.text_color}; min-height: 450px`,      
         }
+
+        // Use Backgroung Image
+        if (settings.use_background_image === true && category.uploaded_background?.url) {
+          containerStyles = {
+            style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover; background-position: center; min-height: 450px`,      
+          }
+        }
+
+
+        return h(
+          `div.category-title-header.category-banner-${category.slug}`,
+          {
+            attributes: containerStyles,
+          },
+          h("div.category-title-contents", buildCategory(category, this))
+        );
 
       }
 
-      
 
     } else {
       document.body.classList.remove("category-header");
