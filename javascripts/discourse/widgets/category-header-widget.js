@@ -39,6 +39,13 @@ export default createWidget("category-header-widget", {
   html() {
     const router = getOwner(this).lookup("router:main");
     const route = router.currentRoute;
+
+    console.log(router, "router");
+    console.log(route, "route");
+
+
+
+
     if (
       route &&
       route.params &&
@@ -53,6 +60,8 @@ export default createWidget("category-header-widget", {
           categories[item[0]] = item[1] || "all";
         }
       });
+
+      console.log(categories, "categories");
 
       const category = Category.findBySlugPathWithID(
         route.params.category_slug_path_with_id
@@ -84,7 +93,7 @@ export default createWidget("category-header-widget", {
       ) {
         document.body.classList.add("category-header");
 
-      console.log(category)
+      console.log(category, "category data")
 
         return h(
           `div.category-title-header.category-banner-${category.slug}`,
