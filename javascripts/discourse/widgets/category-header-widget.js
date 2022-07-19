@@ -106,7 +106,7 @@ export default createWidget("category-header-widget", {
         // Use Backgroung Image
         if (settings.use_background_image === true && category.uploaded_background?.url) {
           containerStyles = {
-            style: `background: url("${window.location.origin}${category.uploaded_background.url}") no-repeat cover center;`,      
+            style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover`,      
           }
         }
 
