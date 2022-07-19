@@ -100,13 +100,13 @@ export default createWidget("category-header-widget", {
 
         // Set Default Div Styles
         let containerStyles = {
-          style: `background-color: #${category.color}; color: #${category.text_color};`,      
+          style: `background-color: #${category.color}; color: #${category.text_color}; min-height: 450px`,      
         }
 
         // Use Backgroung Image
         if (settings.use_background_image === true && category.uploaded_background?.url) {
           containerStyles = {
-            style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover`,      
+            style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover; background-position: center; min-height: 450px`,      
           }
         }
 
