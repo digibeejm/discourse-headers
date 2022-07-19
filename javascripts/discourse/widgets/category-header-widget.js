@@ -28,6 +28,13 @@ function buildCategory(category, widget) {
         h("div.cooked", { innerHTML: category.description })
       )
     );
+    content.push(
+      h(
+        "div.test",
+        h("div.test", { innerHTML: `<br><div style="red">asdfasdfasdf</div>` }),
+        h("div.test2", { innerHTML:  })
+      )
+    );
   }
 
   return content;
@@ -42,9 +49,6 @@ export default createWidget("category-header-widget", {
 
     console.log(router, "router");
     console.log(route, "route");
-
-
-
 
     if (
       route &&
