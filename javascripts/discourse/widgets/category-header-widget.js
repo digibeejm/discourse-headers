@@ -86,43 +86,49 @@ export default createWidget("category-header-widget", {
       const hasNoCategoryDescription = settings.hide_if_no_description && !category.description_text;
 
 
-      if( router.currentPath === '/'){
+      if( router.currentURL === '/'){
+        // Handle HomePage
         console.log('HOMEPAGE')
-      }
+      } else {
 
-      if (
-        isTarget &&
-        !isException &&
-        !hasNoCategoryDescription &&
-        !isSubCategory &&
-        !hideMobile
-      ) {
-        document.body.classList.add("category-header");
+        // Category Headers
+        if (
+          isTarget &&
+          !isException &&
+          !hasNoCategoryDescription &&
+          !isSubCategory &&
+          !hideMobile
+        ) {
+          document.body.classList.add("category-header");
 
-        console.log(category, "category data")
+          console.log(category, "category data")
 
-        // Set Default Div Styles
-        let containerStyles = {
-          style: `background-color: #${category.color}; color: #${category.text_color}; min-height: 450px`,      
-        }
-
-        // Use Backgroung Image
-        if (settings.use_background_image === true && category.uploaded_background?.url) {
-          containerStyles = {
-            style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover; background-position: center; min-height: 450px`,      
+          // Set Default Div Styles
+          let containerStyles = {
+            style: `background-color: #${category.color}; color: #${category.text_color}; min-height: 450px`,      
           }
+
+          // Use Backgroung Image
+          if (settings.use_background_image === true && category.uploaded_background?.url) {
+            containerStyles = {
+              style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover; background-position: center; min-height: 450px`,      
+            }
+          }
+
+
+          return h(
+            `div.category-title-header.category-banner-${category.slug}`,
+            {
+              attributes: containerStyles,
+            },
+            h("div.category-title-contents", buildCategory(category, this))
+          );
+
         }
 
-
-        return h(
-          `div.category-title-header.category-banner-${category.slug}`,
-          {
-            attributes: containerStyles,
-          },
-          h("div.category-title-contents", buildCategory(category, this))
-        );
-
       }
+
+      
 
     } else {
       document.body.classList.remove("category-header");
