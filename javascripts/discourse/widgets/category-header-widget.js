@@ -46,7 +46,7 @@ export default createWidget("category-header-widget", {
     const router = getOwner(this).lookup("router:main");
     const route = router.currentRoute;
 
-    // console.log(router, "router");
+    console.log(router, "router");
     // console.log(route, "route");
 
     if (
