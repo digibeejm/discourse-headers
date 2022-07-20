@@ -36,7 +36,7 @@ function buildCategory(category, widget) {
     <li id="carousel__slide1"
         tabindex="0"
         class="carousel__slide"
-        style-"background: url('https://discourse.blutekmedia.com/uploads/default/original/1X/74ee05bbd0fda9b444372bff585b47a2a3cdf3dd.jpeg'); background-size:cover"">
+        style="background: url('https://discourse.blutekmedia.com/uploads/default/original/1X/74ee05bbd0fda9b444372bff585b47a2a3cdf3dd.jpeg'); background-size:cover"">
       <div class="carousel__snapper"></div>
     </li>
     <li id="carousel__slide2"
