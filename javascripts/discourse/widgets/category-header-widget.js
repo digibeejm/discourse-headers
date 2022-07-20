@@ -49,6 +49,10 @@ export default createWidget("category-header-widget", {
       // Handle HomePage
       console.log('HOMEPAGE')
 
+      document.body.classList.remove("category-header");
+
+      document.body.classList.add("category-header");
+
       return h(
           `div.category-title-header.category-banner-home`,
           {
