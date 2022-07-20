@@ -48,4 +48,6 @@ div[class^="category-title-header"] {
   }
 }
 
---header-offset: 0px;
+:root {
+  --header-offset: 0px;
+}
