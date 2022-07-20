@@ -39,10 +39,7 @@ export default createWidget("category-header-widget", {
   html() {
     const router = getOwner(this).lookup("router:main");
     const route = router.currentRoute;
-
-    console.log(router, "router");
-
-
+    
     // Home Header
     if( router.currentURL === "/"){
       // Handle HomePage
@@ -65,7 +62,7 @@ export default createWidget("category-header-widget", {
         }
       });
 
-      console.log(categories, "categories");
+      // console.log(categories, "categories");
 
       const category = Category.findBySlugPathWithID(
         route.params.category_slug_path_with_id
@@ -95,8 +92,6 @@ export default createWidget("category-header-widget", {
       ) {
         document.body.classList.add("category-header");
 
-        console.log(category, "category data")
-
         // Set Default Div Styles
         // let containerStyles = {
         //   style: `background-color: #${category.color}; color: #${category.text_color}; min-height:350px; position: relative;`,      
@@ -104,7 +99,8 @@ export default createWidget("category-header-widget", {
 
         // Use Backgroung Image
         if (settings.use_background_image === true && category.uploaded_background?.url) {
-          containerStyles = {
+          
+          let containerStyles = {
             style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover; background-position: center; min-height: 450px; position: relative;`,      
           }
 
