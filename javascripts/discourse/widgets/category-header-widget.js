@@ -50,16 +50,13 @@ export default createWidget("category-header-widget", {
     // console.log(route, "route");
 
 
-    console.log(router.currentURL, "currentURL")
-    console.log(router.location.location, "location")
-    console.log(router.location.location.pathname, "pathname")
-
+    // Home Header
     if( router.currentURL === "/"){
       // Handle HomePage
       console.log('HOMEPAGE')
     }
 
-    
+
     // Category Headers
     if (
       route &&
