@@ -19,13 +19,13 @@ function buildCategory(category, widget) {
     ? [iconNode("lock"), category.name]
     : category.name;
 
-  // content.push(h("h1.category-title", categoryTitle));
+  content.push(h("h2.category-title", categoryTitle));
 
   if (settings.show_description) {
     content.push(
       h(
         "div.category-title-description",
-        h("div.cooked", { innerHTML: categoryTitle + ' - ' + category.description })
+        h("div.cooked", { innerHTML: category.description })
       )
     );
   }
