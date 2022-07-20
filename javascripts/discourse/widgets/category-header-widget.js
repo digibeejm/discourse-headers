@@ -41,53 +41,11 @@ export default createWidget("category-header-widget", {
     const route = router.currentRoute;
 
     console.log(router, "router");
-    // console.log(route, "route");
 
 
     // Home Header
     if( router.currentURL === "/"){
       // Handle HomePage
-      console.log('HOMEPAGE')
-
-      document.body.classList.remove("category-header");
-
-      document.body.classList.add("category-header");
-
-      return h(
-          `div.category-title-header.category-banner-home`,
-          {
-            attributes: `min-height: 450px`,
-          },
-          h("div.category-title-contents", h(
-              "div.test",
-              h("div.test", { innerHTML: `<section class="carousel" aria-label="Gallery">
-        <ol class="carousel__viewport">
-          <li id="carousel__slide1"
-              tabindex="0"
-              class="carousel__slide"
-              style="background: url('https://discourse.blutekmedia.com/uploads/default/original/1X/74ee05bbd0fda9b444372bff585b47a2a3cdf3dd.jpeg'); background-size:cover"">
-            <div class="carousel__snapper"></div>
-          </li>
-          <li id="carousel__slide2"
-              tabindex="0"
-              class="carousel__slide">
-            <div class="carousel__snapper"></div>
-          </li>
-          <li id="carousel__slide3"
-              tabindex="0"
-              class="carousel__slide">
-            <div class="carousel__snapper"></div>
-          </li>
-          <li id="carousel__slide4"
-              tabindex="0"
-              class="carousel__slide">
-            <div class="carousel__snapper"></div>
-          </li>
-        </ol>
-      </section>` })
-            ))
-        );
-
     }
 
 
