@@ -50,9 +50,9 @@ export default createWidget("category-header-widget", {
       console.log('HOMEPAGE')
 
       return h(
-          `div.category-title-header.category-banner-${category.slug}`,
+          `div.category-title-header.category-banner-home`,
           {
-            attributes: `background-color: #${category.color}; color: #${category.text_color}; min-height: 450px`,
+            attributes: `min-height: 450px`,
           },
           h("div.category-title-contents", h(
               "div.test",
