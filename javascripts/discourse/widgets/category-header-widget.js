@@ -98,31 +98,31 @@ export default createWidget("category-header-widget", {
         console.log(category, "category data")
 
         // Set Default Div Styles
-        let containerStyles = {
-          style: `background-color: #${category.color}; color: #${category.text_color}; min-height: 450px; position: relative;`,      
-        }
+        // let containerStyles = {
+        //   style: `background-color: #${category.color}; color: #${category.text_color}; min-height:350px; position: relative;`,      
+        // }
 
         // Use Backgroung Image
         if (settings.use_background_image === true && category.uploaded_background?.url) {
           containerStyles = {
             style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover; background-position: center; min-height: 450px; position: relative;`,      
           }
-        }
 
-
-        return h(
-          `div.category-title-header.category-banner-${category.slug}`,
-          {
-            attributes: containerStyles,
-          },
-          h("div.category-title-contents",
+          return h(
+            `div.category-title-header.category-banner-${category.slug}`,
             {
-              attributes: { style: `max-width: 100%; padding: 5px; background-color: #ffffff; position: absolute; bottom: 0px; width: 100%;` },
+              attributes: containerStyles,
             },
-            buildCategory(category, this)
-          )
-        );
+            h("div.category-title-contents",
+              {
+                attributes: { style: `max-width: 100%; padding: 10px; background-color: #ffffff; position: absolute; bottom: 0px; width: 100%;` },
+              },
+              buildCategory(category, this)
+            )
+          );
 
+        }
+        
       }
 
 
