@@ -19,13 +19,13 @@ function buildCategory(category, widget) {
     ? [iconNode("lock"), category.name]
     : category.name;
 
-  content.push(h("h1.category-title", categoryTitle));
+  // content.push(h("h1.category-title", categoryTitle));
 
   if (settings.show_description) {
     content.push(
       h(
         "div.category-title-description",
-        h("div.cooked", { innerHTML: category.description })
+        h("div.cooked", { innerHTML: categoryTitle + ' - ' + category.description })
       )
     );
   }
@@ -117,7 +117,7 @@ export default createWidget("category-header-widget", {
           },
           h("div.category-title-contents",
             {
-              attributes: { style: `background-color: #ffffff; position: absolute; bottom: 0px; width: 100%;` },
+              attributes: { style: `max-width: 100%; padding: 5px; background-color: #ffffff; position: absolute; bottom: 0px; width: 100%;` },
             },
             buildCategory(category, this)
           )
