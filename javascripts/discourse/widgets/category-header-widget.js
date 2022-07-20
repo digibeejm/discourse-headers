@@ -116,10 +116,13 @@ export default createWidget("category-header-widget", {
             attributes: containerStyles,
           },
           h("div.category-title-contents",
-          {
-            attributes: `background-color: #ffffff; position: absolute; bottom: 0px; width: 100%;`,
-          },
-          buildCategory(category, this)
+            {
+              attributes: `background-color: #ffffff; position: absolute; bottom: 0px; width: 100%;`,
+            },
+            h(
+              "div.category-title-contents-actions",
+              buildCategory(category, this)
+            )
           )
         );
 
