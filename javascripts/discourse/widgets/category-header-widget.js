@@ -99,13 +99,13 @@ export default createWidget("category-header-widget", {
 
         // Set Default Div Styles
         let containerStyles = {
-          style: `background-color: #${category.color}; color: #${category.text_color}; min-height: 450px`,      
+          style: `background-color: #${category.color}; color: #${category.text_color}; min-height: 450px; position: relative;`,      
         }
 
         // Use Backgroung Image
         if (settings.use_background_image === true && category.uploaded_background?.url) {
           containerStyles = {
-            style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover; background-position: center; min-height: 450px`,      
+            style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover; background-position: center; min-height: 450px; position: relative;`,      
           }
         }
 
@@ -115,7 +115,9 @@ export default createWidget("category-header-widget", {
           {
             attributes: containerStyles,
           },
-          h("div.category-title-contents", buildCategory(category, this))
+          h("div.category-title-contents",{
+            attributes: `background: #ffffff; position: absolute; bottom: 0px; width: 100%;`,
+          }, buildCategory(category, this))
         );
 
       }
