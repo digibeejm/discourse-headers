@@ -19,7 +19,7 @@ function buildCategory(category, widget) {
     ? [iconNode("lock"), category.name]
     : category.name;
 
-  content.push(h("h2.category-title", categoryTitle));
+  content.push(h("h3.category-title", categoryTitle));
 
   if (settings.show_description) {
     content.push(
@@ -39,7 +39,7 @@ export default createWidget("category-header-widget", {
   html() {
     const router = getOwner(this).lookup("router:main");
     const route = router.currentRoute;
-    
+
     // Home Header
     if( router.currentURL === "/"){
       // Handle HomePage
@@ -101,7 +101,7 @@ export default createWidget("category-header-widget", {
         if (settings.use_background_image === true && category.uploaded_background?.url) {
           
           let containerStyles = {
-            style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover; background-position: center; min-height: 450px; position: relative;`,      
+            style: `background: url("${window.location.origin}${category.uploaded_background.url}"); background-size: cover; background-position: center; min-height: 500px; position: relative;`,      
           }
 
           return h(
