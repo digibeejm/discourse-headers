@@ -5,7 +5,11 @@ import { createWidget } from "discourse/widgets/widget";
 import Category from "discourse/models/category";
 
 function buildCategory(category, widget) {
-  const content = [];
+  const content = [
+    {
+      attributes: `background: #ffffff; position: absolute; bottom: 0px; width: 100%;`,
+    }
+  ];
 
   if (settings.show_category_icon) {
     try {
@@ -115,9 +119,8 @@ export default createWidget("category-header-widget", {
           {
             attributes: containerStyles,
           },
-          h("div.category-title-contents",{
-            attributes: `background: #ffffff; position: absolute; bottom: 0px; width: 100%;`,
-          }, buildCategory(category, this))
+          h("div.category-title-contents",
+          buildCategory(category, this))
         );
 
       }
